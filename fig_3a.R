@@ -55,7 +55,7 @@ hm1 <- hm1[rownames(hm1) %in% 5:108,colnames(hm1) %in% 150:408]
 hm1 <- melt(hm1)
 hm1 <- as.data.table(hm1); names(hm1) <- c('PH','Kinase','distance')
 hm1$AKT1 <- '68-77 Duplication'
-#hm1$distance[abs(hm1$distance) < 3.1] <- 0
+hm1$distance[abs(hm1$distance) < 3.1] <- 0
 
 hm2 <- as.matrix(m.e17k[,c(2:ncol(m.e17k)),with=F])
 rownames(hm2) <- 1:480
@@ -63,7 +63,7 @@ colnames(hm2) <- 1:480
 hm2 <- hm2[rownames(hm2) %in% 5:108,colnames(hm2) %in% 150:408]
 hm2 <- melt(hm2)
 hm2 <- as.data.table(hm2); names(hm2) <- c('PH','Kinase','distance')
-#hm2$distance[abs(hm2$distance) < 3.1] <- 0
+hm2$distance[abs(hm2$distance) < 3.1] <- 0
 hm2$AKT1 <- 'E17K'
 
 hm <- rbind(hm1,hm2)
@@ -74,7 +74,7 @@ lims <- range(hm1$distance)
 
 p.dup <- ggplot() +
     scale_y_continuous(breaks=17) + scale_x_continuous(breaks=308) + 
-    geom_tile(data=hm1,aes(x=Kinase,y=PH,fill=distance),color='lightgrey') +
+    geom_tile(data=hm1,aes(x=Kinase,y=PH,fill=distance)) +
     scale_fill_gradient2(low='blue',mid='white',high='red',midpoint=0,limits=lims,name='Change in distance [A] ') +
     theme_bw(base_size=10) +
     theme(panel.grid.minor=element_blank(),panel.grid.major=element_blank(),legend.position='bottom') +
@@ -82,14 +82,14 @@ p.dup <- ggplot() +
 
 p.e17k <- ggplot() +
     scale_y_continuous(breaks=17) + scale_x_continuous(breaks=308) + 
-    geom_tile(data=hm2,aes(x=Kinase,y=PH,fill=distance),color='lightgrey') +
+    geom_tile(data=hm2,aes(x=Kinase,y=PH,fill=distance)) +
     scale_fill_gradient2(low='blue',mid='white',high='red',midpoint=0,limits=lims,name='Change in distance [A] ') +
     theme_bw(base_size=10) +
     theme(panel.grid.minor=element_blank(),panel.grid.major=element_blank(),legend.position='bottom') +
     labs(x='Kinase domain residues',y='PH domain residues',title='E17K mutation')
 
 p <- plot_grid(p.e17k,p.dup,ncol=2,nrow=1,rel_widths=c(1,1))
-ggsave(here('fig_3a.pdf'),width=8,height=4)
+ggsave(here('fig_3a.pdf'),width=7,height=4)
 
 
 
