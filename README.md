@@ -1,4 +1,4 @@
-# Companion code for "AKT mutant allele-specific activation dictates pharmacologic sensitivities"
+# AKT mutant allele-specific activation dictates pharmacologic sensitivities
 
 ![alt text](https://github.com/agorelick/akt1/blob/master/data/wiki.png "Fig 3. Structural and signaling impact of AKT in-frame indels")
 
