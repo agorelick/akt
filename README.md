@@ -4,7 +4,7 @@
 
 # Instructions
 
-## Fig 3a
+## Fig 3a, Supplementary Figure 3a-b:
 
 Heatmaps comparing the displacement of AKT1 residues in the (time-averaged) E17K and P68-77dup protein structures (Fig 3a) can be regenerated from precomputed residue-residue distance maps as follows:
 
