@@ -22,10 +22,10 @@ new.packages <- required.packages[!(required.packages %in% installed.packages()[
 if(length(new.packages)>0) install.packages(new.packages)
 ```
 
-Run the fig_3a.R script:
+Run the do.R script:
 ```r
-## create a PDF with figure 3a: fig_3a.pdf
-Rscript fig_3a.R
+## create PDFs with figures 3a, 3a-b:
+Rscript do.R
 ```
 
 ## Fig 3b-d
